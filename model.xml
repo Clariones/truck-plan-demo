@@ -1,6 +1,6 @@
 <root org="doublechain"
-    chinese_name="双链索骥数据中台1"
-    english_name="双链索骥数据中台"
+    chinese_name="充装任务管理中台"
+    english_name="filling task platform"
 	_logo="https://demo.doublechaintech.com/demodata/imageManager/loadImage/drink0000/400/300/red/"
 	_homebackground="https://demo.doublechaintech.com/demodata/imageManager/loadImage/drink0000/400/300/red/"
 	_loginbackgroud="https://demo.doublechaintech.com/demodata/imageManager/loadImage/drink0000/400/300/red/"
@@ -128,6 +128,16 @@ view_group="分组:充装请求|充装请求|[1,100]"
         
     />
 
+	<stop_event
+        factory_id="工厂ID:F02103121|[1,64]"
+        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
+        station_id="工位号:WS001|Ar02|[1,64]"
+        cq="$(change_request)"
+        _features="n*event"
+        _reg_func="CODE"
+        
+    />
+
     <factory
         _name="充装站"
         name="名称:大件路充装站|和坪山区充装站|[1,100]"
@@ -152,15 +162,7 @@ view_group="分组:充装请求|充装请求|[1,100]"
         last_update_time="updateTime()"
         />
 
-    <stop_event
-        factory_id="工厂ID:F02103121|[1,64]"
-        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
-        station_id="工位号:WS001|Ar02|[1,64]"
-        cq="$(change_request)"
-        _features="n*event"
-        _reg_func="CODE"
-        
-    />
+
     
     <filling_task_status
         _name="任务状态"
@@ -177,6 +179,7 @@ view_group="分组:充装请求|充装请求|[1,100]"
         create_by="任务来源:$(change_request)"
         start_time="开始时间:2100-12-31T23:59:59?"
         finish_time="结束时间:2100-12-31T23:59:59?"
+		factory="$(factory)"
         create_time="createTime()"
         last_update_time="updateTime()"
         />
