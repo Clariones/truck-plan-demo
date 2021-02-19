@@ -105,9 +105,9 @@ view_group="分组:充装请求|充装请求|[1,100]"
 
   -->
     <change_request_type
-        name="名称:开始充装|立即停止|[1,100]"
-        code="代码:START|STOP|[1,100]"
-        icon="图标:start|stop|[1,100]"
+        name="名称:批量命令|开始充装|立即停止|[1,100]"
+        code="代码:BATCH|START|STOP|[1,100]"
+        icon="图标:bars|play|stop|[1,100]"
         display_order="显示顺序:1|2|3|4|5|6"
         bind_types="text()"
         step_configuration="text()"
@@ -125,7 +125,7 @@ view_group="分组:充装请求|充装请求|[1,100]"
         stop_pressure="充装停止压力:999.99|13.87|[0.00,999.99]"
         cq="$(change_request)"
         _features="n*event"
-        _reg_func="CODE"
+        _reg_func="批量命令"
     />
 
 	<stop_request
@@ -135,7 +135,7 @@ view_group="分组:充装请求|充装请求|[1,100]"
         station_id="工位号:WS001|Ar02|[1,64]"
         cq="$(change_request)"
         _features="n*event"
-        _reg_func="CODE"
+        _reg_func="批量命令"
         
     />
 
