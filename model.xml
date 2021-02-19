@@ -117,7 +117,8 @@ view_group="分组:充装请求|充装请求|[1,100]"
     >
     </change_request_type>
 
-    <start_event
+    <start_request
+		_name="开始充装命令"
         factory_id="工厂ID:F02103121|[1,64]"
         task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
         station_id="工位号:WS001|Ar02|[1,64]"
@@ -125,10 +126,10 @@ view_group="分组:充装请求|充装请求|[1,100]"
         cq="$(change_request)"
         _features="n*event"
         _reg_func="CODE"
-        
     />
 
-	<stop_event
+	<stop_request
+		_name="停止充装命令"
         factory_id="工厂ID:F02103121|[1,64]"
         task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
         station_id="工位号:WS001|Ar02|[1,64]"
