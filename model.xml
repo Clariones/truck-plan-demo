@@ -7,7 +7,7 @@
 >
 
     <platform
-        name="双链索骥数据中台"
+        name="充装任务管理中台"
         founded="now()"
         description="双链科技数据中台系统（DMOS)|[1,2000]"
         
@@ -149,6 +149,7 @@ view_group="分组:充装请求|充装请求|[1,100]"
     <filling_station
         _name="充装工位"
         name="名称:1#氧气位|乙炔2号|[1,40]"
+		factory="$(factory)"
         create_time="createTime()"
         last_update_time="updateTime()"
         />
