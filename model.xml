@@ -4,10 +4,7 @@
 	_logo="https://demo.doublechaintech.com/demodata/imageManager/loadImage/drink0000/400/300/red/"
 	_homebackground="https://demo.doublechaintech.com/demodata/imageManager/loadImage/drink0000/400/300/red/"
 	_loginbackgroud="https://demo.doublechaintech.com/demodata/imageManager/loadImage/drink0000/400/300/red/"
-	
-
 >
-
 
     <platform
         name="双链索骥数据中台"
@@ -16,63 +13,6 @@
         
         
     />
-
-
-
-
-
-
-
-
-
-
-
-	
-    <change_request
-        name="数据变更|数据增加|数据删除|[1,50]"
-        create_time="createTime()"
-        remote_ip="remoteIp()"
-        request_type="$(change_request_type)"
-        platform="$(platform)"
-        _vg4platform="公司管理"
-        _features="change_request"
-    />
-  
-    <change_request_type
-        name="名称:开始充装|立即停止|[1,100]"
-        code="代码:START|STOP|[1,100]"
-        icon="图标:start|stop|[1,100]"
-        view_group="分组:充装请求|充装请求|[1,100]"
-        display_order="显示顺序:1|2|3|4|5|6"
-        bind_types="text()"
-        step_configuration="text()"
-        platform="$(platform)"
-        _features="cr_type"
-        _identified_by="code"
-    >
-    </change_request_type>
-
-    <start_event
-        factory_id="工厂ID:F02103121|[1,64]"
-        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
-        station_id="工位号:WS001|Ar02|[1,64]"
-        stop_pressure="充装停止压力:999.99|13.87|[0.00,999.99]"
-        cq="$(change_request)"
-        _features="n*event"
-        _reg_func="CODE"
-        
-    />
-
-    <stop_event
-        factory_id="工厂ID:F02103121|[1,64]"
-        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
-        station_id="工位号:WS001|Ar02|[1,64]"
-        cq="$(change_request)"
-        _features="n*event"
-        _reg_func="CODE"
-        
-    />
-	
 
 	<chart_type
 		name="柱形图|折线图|饼图|条形图|面积图|点状图|组合图|散点图|气泡图|项目符号图表|仪表板图|排列图|排列图|渐进柱形图|Marimekko 图|雷达图|极坐标图"
@@ -91,12 +31,6 @@
 		_group_by="group_name"
 		_features="status"
 	/>
-	
-
-
-
-	
-	
 	
 	<data_app_user
 		name="章总|李总|数字大屏|户外广告|[1,200]"
@@ -133,18 +67,6 @@
 		_features="custom"
 	/>
 	
-
-
-
-
-
-
-
-
-
-	
-
-
 	<chart_page
 		name="四川省人口主要指标分析|[1,200]"
 		chart_type="$(chart_type)"
@@ -166,6 +88,105 @@
 	/>
 	
 	
+	<!-- 业务模型 -->
+	<change_request
+        name="数据变更|数据增加|数据删除|[1,50]"
+        create_time="createTime()"
+        remote_ip="remoteIp()"
+        request_type="$(change_request_type)"
+        platform="platform()"
+        _vg4platform="公司管理"
+        _features="change_request"
+    />
+  
+    <change_request_type
+        name="名称:开始充装|立即停止|[1,100]"
+        code="代码:START|STOP|[1,100]"
+        icon="图标:start|stop|[1,100]"
+        view_group="分组:充装请求|充装请求|[1,100]"
+        display_order="显示顺序:1|2|3|4|5|6"
+        bind_types="text()"
+        step_configuration="text()"
+        platform="$(platform)"
+        _features="cr_type"
+        _identified_by="code"
+    >
+    </change_request_type>
+
+    <start_event
+        factory_id="工厂ID:F02103121|[1,64]"
+        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
+        station_id="工位号:WS001|Ar02|[1,64]"
+        stop_pressure="充装停止压力:999.99|13.87|[0.00,999.99]"
+        cq="$(change_request)"
+        _features="n*event"
+        _reg_func="CODE"
+        
+    />
+
+    <factory
+        _name="充装站"
+        name="名称:大件路充装站|和坪山区充装站|[1,100]"
+        platform="$(platform)"
+        create_time="createTime()"
+        last_update_time="updateTime()"
+        />
+
+    <filling_station
+        _name="充装工位"
+        name="名称:1#氧气位|乙炔2号|[1,40]"
+        create_time="createTime()"
+        last_update_time="updateTime()"
+        />
+
+    <filling_device
+        _name="充装设备"
+        type="设备类型:阀门|压力传感器|[1,40]"
+        device_pid="设备PID:V-1021|V-1022|[1,20]"
+        filling_station="$(filling_station)"
+        create_time="createTime()"
+        last_update_time="updateTime()"
+        />
+
+    <stop_event
+        factory_id="工厂ID:F02103121|[1,64]"
+        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
+        station_id="工位号:WS001|Ar02|[1,64]"
+        cq="$(change_request)"
+        _features="n*event"
+        _reg_func="CODE"
+        
+    />
+    
+    <filling_task_status
+        _name="任务状态"
+        name="未启动|充装中|已结束|被停止"
+        code="NOT_START|RUNNING|FINISHED|STOPPED"
+        platform="$(platform)"
+        _features="status"
+        />
+
+    <filling_task
+        _name="充装任务"
+        trace_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
+        status="$(filling_task_status)"
+        create_by="任务来源:$(change_request)"
+        start_time="开始时间:2100-12-31T23:59:59?"
+        finish_time="结束时间:2100-12-31T23:59:59?"
+        create_time="createTime()"
+        last_update_time="updateTime()"
+        />
+
+    <filling_task_result
+        _name="任务结果反馈"
+        factory="$(factory)"
+        filling_station="$(filling_station)"
+        filling_task="$(filling_task)"
+        start_time="开始时间:2100-12-31T23:59:59?"
+        finish_time="结束时间:2100-12-31T23:59:59?"
+        stop_pressure="充装停止压力:999.99|13.87|[0.00,999.99]"
+        create_time="createTime()"
+        />
 </root>
 
 
