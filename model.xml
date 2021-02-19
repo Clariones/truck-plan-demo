@@ -28,49 +28,51 @@
 
 
 	
-	<change_request_type
-		name="创建大屏|查看|订阅|取消订阅|搜索|禁止用户"
-		code="DEPOSITE|TRANSFER|WITHDRAW|CREATE_ACCOUNT|CHANGE_NAME|DISABLE_USER|[1,99]"
-		icon="download|swap|upload|account-book|edit"
-		display_order="1|2|3|4|5|6"
-		bind_types="text()"
-		step_configuration="text()"
-		platform="$(platform)"
-		_features="cr_type"
-		_identified_by="code"
-		
-	/>
+    <change_request
+        name="数据变更|数据增加|数据删除|[1,50]"
+        create_time="createTime()"
+        remote_ip="remoteIp()"
+        request_type="$(change_request_type)"
+        platform="$(platform)"
+        _vg4platform="公司管理"
+        _features="change_request"
+    />
+  
+    <change_request_type
+        name="名称:开始充装|立即停止|[1,100]"
+        code="代码:START|STOP|[1,100]"
+        icon="图标:start|stop|[1,100]"
+        view_group="分组:充装请求|充装请求|[1,100]"
+        display_order="显示顺序:1|2|3|4|5|6"
+        bind_types="text()"
+        step_configuration="text()"
+        platform="$(platform)"
+        _features="cr_type"
+        _identified_by="code"
+    >
+    </change_request_type>
+
+    <start_event
+        factory_id="工厂ID:F02103121|[1,64]"
+        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
+        station_id="工位号:WS001|Ar02|[1,64]"
+        stop_pressure="充装停止压力:999.99|13.87|[0.00,999.99]"
+        cq="$(change_request)"
+        _features="n*event"
+        _reg_func="CODE"
+        
+    />
+
+    <stop_event
+        factory_id="工厂ID:F02103121|[1,64]"
+        task_id="任务号:TSK00001|O2_FILL_20099876|[1,64]"
+        station_id="工位号:WS001|Ar02|[1,64]"
+        cq="$(change_request)"
+        _features="n*event"
+        _reg_func="CODE"
+        
+    />
 	
-	
-	
-	<!-- PENDING ACTION FROM WHOM -->
-    
-	<change_request
-		name="存款|转账|取款|[1,50]"
-		
-		create_time="createTime()"
-		remote_ip="remoteIp()"
-		request_type="$(change_request_type)"
-		platform="$(platform)"
-		_vg4platform="变更"
-		_features="change_request"
-	/>
-	
-	<event
-		name="存款|转账|取款|[1,50]"
-		picture="girls.jpg"
-		cq="$(change_request)"
-		_features="n*event"
-		_reg_func="CODE"
-		
-	/>
-	<event1
-		name="存款|转账|取款|[1,50]"
-		cq="$(change_request)"
-		_features="n*event"
-		_reg_func="DEC|减法|file"
-		
-	/>
 
 	<chart_type
 		name="柱形图|折线图|饼图|条形图|面积图|点状图|组合图|散点图|气泡图|项目符号图表|仪表板图|排列图|排列图|渐进柱形图|Marimekko 图|雷达图|极坐标图"
