@@ -101,14 +101,14 @@
   
   <!--
 view_group="分组:充装请求|充装请求|[1,100]"
-        display_order="显示顺序:1|2|3|4|5|6"
+        
 
   -->
     <change_request_type
         name="名称:开始充装|立即停止|[1,100]"
         code="代码:START|STOP|[1,100]"
         icon="图标:start|stop|[1,100]"
-        
+        display_order="显示顺序:1|2|3|4|5|6"
         bind_types="text()"
         step_configuration="text()"
         platform="$(platform)"
